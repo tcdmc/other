@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<style type="text/css">
+body {
+  margin:0px;
+  background: url(https://pic1.imgdb.cn/item/67b85a37d0e0a243d40164ba.jpg) no-repeat;
+  background-size: cover;
+  padding: 16px;
+  background-position: center center;
+  background-attachment:fixed;
+}
+div.whitebackground {
+  padding: 16px;
+  background: rgb(255, 255, 255);
+  border-radius: 1em;
+  border: 0.3em;
+  border-color: rgb(34, 23, 9);
+  border-style: outset;
+  box-shadow: 0 0 10px rgba(0, 0, 0,0.8);
+  -webkit-animation:fadeinup 1.7s;
+}
+div.imgground{
+  padding: 16px;
+  background: rgb(255, 255, 255);
+  border-radius: 1em;
+  border: 0.3em;
+  border-color: rgb(34, 23, 9);
+  border-style: outset;
+  box-shadow: 0 0 10px rgba(0, 0, 0,0.5);
+  float:left;
+  margin-right: 1em;
+}
+div.nomoving{
+  width: 20em;
+  height: 308px;
+}
+div.inground{
+  padding: 8px;
+  background: rgb(255, 241, 220);
+  line-height:170%;
+}
+div.middle {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  font-size: 2em;
+}
+div.txt{
+  font-family:"Times New Roman";
+}
+div.right{
+  float: right;
+}
+div.title{
+  font-size: 1.5em;
+  border: 0.3em;
+  border-color: rgb(34, 23, 9);
+  border-style: hidden hidden hidden outset;
+}
+div.audiotitle{
+  font-weight: bold;
+  font-family:"monospace";
+}
+div.brown{
+  color: rgb(179, 122, 47);
+}
+div.button {
+  background-color: rgb(179, 122, 47);
+  border: none;
+  color: white;
+  padding: 7px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+@keyframes fadeinup {
+from {
+opacity: 0;
+transform: translatey(-10em);
+}
+to {
+opacity: 1;
+transform: translatey(0);
+}
+}
+</style>
+</head>
+<title>甜菜岛</title>
+<body>
+<script>
+var audioindex = 0;
+var audioarray = ["https://ik.imagekit.io/anrobush/otherside.mp3?updatedAt=1740307251464","https://ik.imagekit.io/anrobush/pigstep.mp3?updatedAt=1740739535042"];
+var imgarray = ["https://pic1.imgdb.cn/item/67c189b6d0e0a243d40829f8.jpg","https://pic1.imgdb.cn/item/67c1957dd0e0a243d4082e54.jpg"];
+var txtarray = ["Lena Raine - Otherside","Lena Raine - Pigstep"];
+var somethingelsebutevilarray = ["“Otherside”以令人振奋和快乐的 A 大调复古风格 ostinato 开始。到了下半场，歌曲变为小调，并发展为较暗的旋律，最终突然中断。在结束时可以听到时钟快速滴答作响。","这首歌是一首激烈的、有点嘻哈风格的节拍，以重复的大提琴般的曲调和 dubstep 风格的下降开始，以及更圆润的部分，让人想起收音机。《Pigstep》的专辑发行包括两个版本：游戏中使用的单声道混音和立体声混音，歌曲中各种乐器的方向感更强"];
+function playPause() {
+  var audio = document.getElementById("evilaudio");
+  if (audio.paused) {
+    audio.play();
+    document.getElementById("evilbutton").innerHTML = "停止";
+  } else {
+    audio.pause();
+    document.getElementById("evilbutton").innerHTML = "播放";
+  }
+}
+function swittch() {
+  audioindex = (audioindex + 1) % audioarray.length;
+  var audio = document.getElementById("evilaudio");
+  audio.src = audioarray[audioindex];
+  audio.load();
+  audio.currentTime = 0;
+  document.getElementById("evilbutton").innerHTML = "停止";
+  document.getElementById("evilimg").src = imgarray[audioindex];
+  document.getElementById("eviltxt").innerHTML = txtarray[audioindex];
+  document.getElementById("somethingelsebutevil").innerHTML = somethingelsebutevilarray[audioindex];
+}
+</script>
+<p></p>
+  <div class="whitebackground">
+    <div class="middle">
+        其他的奇奇怪怪的东西
+        <img src="https://pic1.imgdb.cn/item/67b85504d0e0a243d401634d.png" alt="甜菜" width="30" height="24">
+    </div>
+            <div class="inground">
+                <div class="txt">
+                  <div class="audiotitle title brown">NOW PLAYING: </div><div id="eviltxt" class="audiotitle brown">Lena Raine - Otherside</div>
+                      <div class="imgground">
+                      <img id="evilimg" src="https://pic1.imgdb.cn/item/67c189b6d0e0a243d40829f8.jpg" alt="other" width="300" height="300">
+                      </div>
+                      <div  id="somethingelsebutevil" class="imgground nomoving brown audiotitle">
+                        “Otherside”以令人振奋和快乐的 A 大调复古风格 ostinato 开始。到了下半场，歌曲变为小调，并发展为较暗的旋律，最终突然中断。在结束时可以听到时钟快速滴答作响。
+                      </div>
+                    </div>
+                    <div class="right">
+                      <table>
+                        <tr>
+                        <th><div id="evilbutton" class="button" onclick="playPause()">播放</div></th>
+                        </tr>
+                        <tr>
+                        <th><div id="evilbutton" class="button" onclick="swittch()">换一首</div></th>
+                        </tr>
+                      </table>
+                      <audio controls="controls" height="100" width="100" autoplay="autoplay" loop="loop" hidden="true" id="evilaudio">
+                        <source src="https://ik.imagekit.io/anrobush/otherside.mp3?updatedAt=1740307251464" type="audio/mp3"/>
+                        你的浏览器不支持该音频格式。 Your browser does not support this audio format.
+                      </audio>
+                  </div>
+                  <p><br><br><br><br><br><br><br><br><br><br><br><br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
